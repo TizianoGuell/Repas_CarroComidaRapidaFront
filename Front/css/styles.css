@@ -8,6 +8,11 @@
   --space: 1rem;
 }
 
+/* Global box sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 [data-theme="dark"] {
   --bg: #1e1e1e;
   --bg-alt: #121212;
@@ -26,6 +31,29 @@ body {
   font-family: 'Segoe UI', Roboto, sans-serif;
   background: var(--bg-alt);
   color: var(--text);
+}
+
+#howto {
+  position: fixed;
+  bottom: var(--space);
+  right: var(--space);
+  background: var(--bg);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: var(--space);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  max-width: 320px;
+  font-size: 0.9rem;
+  z-index: 900;
+}
+#howto h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+}
+#howto code {
+  background: var(--bg-alt);
+  padding: 0 0.25rem;
+  border-radius: var(--radius);
 }
 
 /* Sidebar */
@@ -153,13 +181,24 @@ img {
   object-fit: cover;
   margin-bottom: 0.5rem;
 }
+.product span,
+.product strong {
+  display: block;
+  margin-top: 0.25rem;
+  overflow-wrap: anywhere;
+}
 
 .vender-layout {
   display: flex;
   gap: var(--space);
+  align-items: flex-start;
 }
 .productos {
   flex: 3;
+}
+.productos .grid {
+  max-height: 60vh;
+  overflow-y: auto;
 }
 .cart {
   flex: 2;
@@ -167,16 +206,33 @@ img {
   border: 1px solid var(--accent);
   border-radius: var(--radius);
   padding: var(--space);
+  display: flex;
+  flex-direction: column;
 }
 .cart-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.cart-item span:first-child {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+.cart-item div {
+  display: flex;
+  gap: 0.25rem;
 }
 .cart-item button {
   padding: 0.25rem 0.5rem;
   font-size: 0.9rem;
+}
+.cart #cart-items {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: var(--space);
 }
 
 table.list {
@@ -189,6 +245,7 @@ table.list td {
   border-bottom: 1px solid var(--accent);
   padding: 0.5rem;
   text-align: left;
+  word-break: break-word;
 }
 table.list tr:hover {
   background: var(--bg-alt);
