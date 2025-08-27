@@ -12,7 +12,7 @@ export default function vender(container) {
         <div class="productos">
           <input type="text" id="search" placeholder="Buscar" />
           <div class="grid" id="prod-grid"></div>
-          <button id="add-product">Agregar producto</button>
+          <button id="add-product" class="secondary">Agregar producto</button>
         </div>
         <div class="cart">
           <h2>Carrito</h2>
@@ -20,8 +20,8 @@ export default function vender(container) {
           <div>Subtotal: <span id="subtotal">0</span></div>
           <div>Descuento: <input type="number" id="discount" min="0" value="0"/></div>
           <div>Total: <span id="total">0</span></div>
-          <button id="checkout">Cobrar</button>
-          <button id="cancel">Cancelar</button>
+          <button id="checkout" class="primary">Cobrar</button>
+          <button id="cancel" class="secondary">Cancelar</button>
         </div>
       </div>
     `;
@@ -86,7 +86,7 @@ export default function vender(container) {
         <label>Precio<input name="precio" type="number" min="0" required></label>
         <label>Categoría<input name="categoria" required></label>
         <label>Imagen URL<input name="imagen"></label>
-        <div class="actions"><button type="submit" data-confirm>Guardar</button><button type="button" data-cancel>Cancelar</button></div>
+        <div class="actions"><button type="submit" data-confirm class="primary">Guardar</button><button type="button" data-cancel class="secondary">Cancelar</button></div>
       </form>`;
     const m = modal(html, {});
     const form = document.getElementById('prod-form');
@@ -107,7 +107,7 @@ export default function vender(container) {
       <form id="pay-form">
         <label>Método<select name="metodo"><option value="efectivo">Efectivo</option><option value="debito">Débito</option><option value="transferencia">Transferencia</option></select></label>
         <label><input type="checkbox" name="comanda"/> Imprimir comanda</label>
-        <div class="actions"><button type="submit" data-confirm>Cobrar</button><button type="button" data-cancel>Cancelar</button></div>
+        <div class="actions"><button type="submit" data-confirm class="primary">Cobrar</button><button type="button" data-cancel class="secondary">Cancelar</button></div>
       </form>`;
     const m = modal(html, {});
     const form = document.getElementById('pay-form');

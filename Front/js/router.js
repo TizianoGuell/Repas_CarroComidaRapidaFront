@@ -16,6 +16,11 @@ export function router() {
   const container = document.getElementById('view-container');
   container.innerHTML = '';
   view(container);
+
+  // Highlight active sidebar button
+  document.querySelectorAll('#sidebar nav button').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.route === hash);
+  });
 }
 
 window.addEventListener('hashchange', router);
