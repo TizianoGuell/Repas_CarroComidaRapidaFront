@@ -1,0 +1,187 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #000000;
+  --color-primary: #e63946;
+  --sidebar-width: 220px;
+  --transition-fast: 0.2s;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+[data-theme="dark"] {
+  --color-bg: #000000;
+  --color-text: #f5f5f5;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--color-text);
+  color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.sidebar .logo {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.sidebar .logo img {
+  max-width: 150px;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+.nav-btn {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  color: inherit;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  gap: .5rem;
+}
+.nav-btn:hover,
+.nav-btn:focus {
+  background: var(--color-primary);
+  color: #fff;
+  outline: none;
+}
+.sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  padding-top: 1rem;
+}
+.clock {
+  font-size: 0.9rem;
+}
+.version {
+  font-size: 0.8rem;
+}
+
+#app {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+/* Cards and tables */
+.card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-text);
+  padding: 1rem;
+  border-radius: 6px;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th, .table td {
+  border: 1px solid var(--color-text);
+  padding: .5rem;
+  text-align: left;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-box {
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: 1rem;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 6px;
+}
+.modal-box header {
+  font-size: 1.2rem;
+  margin-bottom: .5rem;
+}
+.modal-actions {
+  margin-top: 1rem;
+  text-align: right;
+}
+.modal-actions button {
+  margin-left: .5rem;
+}
+
+/* Grid productos */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
+  gap: 1rem;
+}
+.product-card {
+  border: 1px solid var(--color-text);
+  border-radius: 6px;
+  padding: .5rem;
+  text-align: center;
+  cursor: pointer;
+}
+.product-card img {
+  max-width: 100%;
+  height: 80px;
+  object-fit: contain;
+}
+.product-card .name {
+  font-size: .9rem;
+}
+
+/* Carrito */
+.cart {
+  border-left: 2px solid var(--color-text);
+  padding-left: 1rem;
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .5rem;
+}
+.cart-item button {
+  width: 32px;
+  height: 32px;
+}
+.cart-total {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* Forms */
+input, select, button {
+  font-size: 1rem;
+  padding: .5rem;
+  border: 1px solid var(--color-text);
+  border-radius: 4px;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+button {
+  cursor: pointer;
+}
+
+/* Print styles */
+@media print {
+  body { background: #fff; color: #000; }
+  .sidebar, #modal-root, #app > * { display: none !important; }
+  #print-area { display: block; }
+}
+#print-area { display: none; }
